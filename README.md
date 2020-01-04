@@ -1,6 +1,6 @@
 # CBTC Wallet
 
-[Download here](https://github.com/cbtc-pod/cbtc-windows-wallet/releases)
+[Download here](https://github.com/classicbitcoins/cbtc-wallet/releases)
 
 
 
