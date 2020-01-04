@@ -116,8 +116,8 @@ public class ZCashClientCaller
 		if ((zcashcli == null) || (!zcashcli.exists()))
 		{
 			throw new IOException(
-				"The BitcoinZ installation directory " + installDir + " needs to contain " +
-				"the command line utilities bitcoinzd and bitcoinz-cli. zcash-cli is missing!");
+				"The CBTC installation directory " + installDir + " needs to contain " +
+				"the command line utilities cbtcd and cbtc-cli. zcash-cli is missing!");
 		}
 
 		zcashd = new File(dir, OSUtil.getZCashd());
@@ -129,8 +129,8 @@ public class ZCashClientCaller
 		if (zcashd == null || (!zcashd.exists()))
 		{
 		    throw new IOException(
-		    	"The BitcoinZ command line utility " + zcashcli.getCanonicalPath() +
-		    	" was found, but bitcoinzd was not found!");
+		    	"The CBTC command line utility " + zcashcli.getCanonicalPath() +
+		    	" was found, but cbtcd was not found!");
 		}
 	}
 

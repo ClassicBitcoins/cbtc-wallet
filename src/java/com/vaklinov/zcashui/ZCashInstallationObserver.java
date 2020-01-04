@@ -75,7 +75,7 @@ public class ZCashInstallationObserver
 		if (!dir.exists() || dir.isFile())
 		{
 			throw new InstallationDetectionException(
-				"The BitcoinZ installation directory " + installDir + " does not exist or is not " +
+				"The CBTC installation directory " + installDir + " does not exist or is not " +
 			    "a directory or is otherwise inaccessible to the wallet!");
 		}
 
@@ -88,16 +88,16 @@ public class ZCashInstallationObserver
 			zcashcli = OSUtil.findZCashCommand(OSUtil.getZCashCli());
 		}
 
-		Log.info("Using BitcoinZ utilities: " +
-		                   "bitcoinzd: "    + ((zcashd != null) ? zcashd.getCanonicalPath() : "<MISSING>") + ", " +
-		                   "bitcoinz-cli: " + ((zcashcli != null) ? zcashcli.getCanonicalPath() : "<MISSING>"));
+		Log.info("Using CBTC utilities: " +
+		                   "cbtcd: "    + ((zcashd != null) ? zcashd.getCanonicalPath() : "<MISSING>") + ", " +
+		                   "cbtc-cli: " + ((zcashcli != null) ? zcashcli.getCanonicalPath() : "<MISSING>"));
 
 		if ((zcashd == null) || (zcashcli == null) || (!zcashd.exists()) || (!zcashcli.exists()))
 		{
 			throw new InstallationDetectionException(
-				"The BitcoinZ GUI Wallet installation directory " + installDir + " needs\nto contain " +
-				"the command line utilities bitcoinzd and bitcoinz-cli. At least one of them is missing! \n" +
-				"Please place files BitcoinZWallet.jar, " + OSUtil.getZCashCli() + ", " +
+				"The CBTC GUI Wallet installation directory " + installDir + " needs\nto contain " +
+				"the command line utilities cbtcd and cbtc-cli. At least one of them is missing! \n" +
+				"Please place files CBTCWallet.jar, " + OSUtil.getZCashCli() + ", " +
 				OSUtil.getZCashd() + " in the same directory.");
 		}
 	}
@@ -121,7 +121,7 @@ public class ZCashInstallationObserver
 	private synchronized DaemonInfo getDaemonInfoForUNIXLikeOS()
 		throws IOException, InterruptedException
 	{
-		return getDaemonInfoForUNIXLikeOS("bitcoinzd");
+		return getDaemonInfoForUNIXLikeOS("cbtcd");
 	}
 
 	// So far tested on Mac OS X and Linux - expected to work on other UNIXes as well
@@ -170,7 +170,7 @@ public class ZCashInstallationObserver
 					} catch (NumberFormatException nfe) { /* TODO: Log or handle exception */ };
 				} else if (i == 10)
 				{
-					if ((token.equals("bitcoinzd")) || (token.endsWith("/bitcoinzd")))
+					if ((token.equals("cbtcd")) || (token.endsWith("/cbtcd")))
 					{
 						info.status = DAEMON_STATUS.RUNNING;
 						foundZCash = true;
@@ -198,7 +198,7 @@ public class ZCashInstallationObserver
 	private synchronized DaemonInfo getDaemonInfoForWindowsOS()
 		throws IOException, InterruptedException
 	{
-		return getDaemonInfoForWindowsOS("bitcoinzd");
+		return getDaemonInfoForWindowsOS("cbtcd");
 	}
 
 	public static synchronized DaemonInfo getDaemonInfoForWindowsOS(String daemonName)
@@ -241,11 +241,11 @@ public class ZCashInstallationObserver
 
 				if (i == 0)
 				{
-					if (token.equals("bitcoinzd.exe") || token.equals("bitcoinzd"))
+					if (token.equals("cbtcd.exe") || token.equals("cbtcd"))
 					{
 						info.status = DAEMON_STATUS.RUNNING;
 						foundZCash = true;
-						//System.out.println("bitcoinzd process data is: " + line);
+						//System.out.println("cbtcd process data is: " + line);
 					}
 				} else if ((i >= 4) && foundZCash)
 				{
@@ -296,7 +296,7 @@ public class ZCashInstallationObserver
 		}
 
 		String blockChainDir = OSUtil.getBlockchainDirectory();
-		File zenConf = new File(blockChainDir + File.separator + "bitcoinz.conf");
+		File zenConf = new File(blockChainDir + File.separator + "cbtc.conf");
 		if (zenConf.exists())
 		{
 			Properties confProps = new Properties();

@@ -27,7 +27,7 @@
  * THE SOFTWARE.
  *
 -->
-<project name="BitcoinZWallet" basedir="../.." default="buildit">
+<project name="CBTCWallet" basedir="../.." default="buildit">
 
     <property name="src.dir"     value="src"/>
 	<property name="lib.dir"     value="lib"/>
@@ -35,7 +35,7 @@
     <property name="classes.dir" value="${build.dir}/classes"/>
 	<property name="temp.dir"    value="${build.dir}/temp"/>
     <property name="jar.dir"     value="${build.dir}/jars"/>
-	<property name="ubuntu.package.dir" value="${build.dir}/../bitcoinz-wallet-ubuntu"/>
+	<property name="ubuntu.package.dir" value="${build.dir}/../cbtc-wallet-ubuntu"/>
 
     <property name="main-class"  value="com.vaklinov.zcashui.ZCashUI"/>
 
@@ -100,24 +100,24 @@
 
     <target name="ubuntuPackage" depends="jar,copyothers">
     	<mkdir dir="${ubuntu.package.dir}"/>
-	    <deb destfile="${ubuntu.package.dir}/bitcoinz-wallet_2.0.5.deb"
+	    <deb destfile="${ubuntu.package.dir}/cbtc-wallet_1.0.9.deb"
 	    	 control="${src.dir}/resources/ubuntu-package"
 	    	 verbose="true">
 
 	      <data src="${jar.dir}/${ant.project.name}.jar" type="file">
-	        <mapper type="perm" filemode="755" prefix="/usr/lib/bitcoinz-wallet"/>
+	        <mapper type="perm" filemode="755" prefix="/usr/lib/cbtc-wallet"/>
 	      </data>
 	      <data src="${jar.dir}/bitcoinj-core-0.14.5.jar" type="file">
-	        <mapper type="perm" filemode="755" prefix="/usr/lib/bitcoinz-wallet"/>
+	        <mapper type="perm" filemode="755" prefix="/usr/lib/cbtc-wallet"/>
 	      </data>
 	      <data src="${jar.dir}/bitcoinj-core-0.14.5_LICENSE.txt" type="file">
-	        <mapper type="perm" filemode="755" prefix="/usr/lib/bitcoinz-wallet"/>
+	        <mapper type="perm" filemode="755" prefix="/usr/lib/cbtc-wallet"/>
 	      </data>
 		  <data src="${jar.dir}/sqlite-jdbc-3.21.0.jar" type="file">
-			 <mapper type="perm" filemode="755" prefix="/usr/lib/bitcoinz-wallet"/>
+			 <mapper type="perm" filemode="755" prefix="/usr/lib/cbtc-wallet"/>
 		  </data>
 		  <data src="${jar.dir}/sqlite-jdbc-3.21.0_LICENSE.txt" type="file">
-			 <mapper type="perm" filemode="755" prefix="/usr/lib/bitcoinz-wallet"/>
+			 <mapper type="perm" filemode="755" prefix="/usr/lib/cbtc-wallet"/>
 		  </data>
 
 			<!-- TODO: As of Nov 2017 the IPFS wallet integration is suspended.
@@ -131,14 +131,14 @@
               <mapper type="perm" filemode="755" prefix="/usr/lib/zencash-gui-wallet/go-ipfs"/>
             </data>
             -->
-	      <data src="${src.dir}/resources/ubuntu-package/bitcoinz-wallet" type="file">
+	      <data src="${src.dir}/resources/ubuntu-package/cbtc-wallet" type="file">
 	        <mapper type="perm" filemode="755" prefix="/usr/bin"/>
 	      </data>
-	      <data src="${src.dir}/resources/ubuntu-package/BitcoinZWallet.desktop" type="file">
+	      <data src="${src.dir}/resources/ubuntu-package/CBTCWallet.desktop" type="file">
 	        <mapper type="perm" filemode="755" prefix="/usr/share/applications"/>
 	      </data>
-	      <data src="${src.dir}/resources/ubuntu-package/BitcoinZ.png" type="file">
-	        <mapper type="perm" filemode="755" prefix="/usr/lib/bitcoinz-wallet"/>
+	      <data src="${src.dir}/resources/ubuntu-package/CBTC.png" type="file">
+	        <mapper type="perm" filemode="755" prefix="/usr/lib/cbtc-wallet"/>
 	      </data>
 	    </deb>
 	</target>

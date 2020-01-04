@@ -12,10 +12,10 @@
 <classPath>sqlite-jdbc-3.21.0.jar</classPath>
 <currentDirectory>${EXECUTABLEPATH}</currentDirectory>
 <embeddedJar>true</embeddedJar>
-<executableName>bitcoinz-wallet.exe</executableName>
-<iconLocation>..\resources\images\BitcoinZ.png</iconLocation>
+<executableName>cbtc-wallet.exe</executableName>
+<iconLocation>..\resources\images\CBTC.png</iconLocation>
 <initialMemoryHeap>536870912</initialMemoryHeap>
-<jarLocation>BitcoinZWallet.jar</jarLocation>
+<jarLocation>CBTCWallet.jar</jarLocation>
 <mainClassName>com.vaklinov.zcashui.ZCashUI</mainClassName>
 <maximumMemoryHeap>1073741824</maximumMemoryHeap>
 <maximumVersion></maximumVersion>

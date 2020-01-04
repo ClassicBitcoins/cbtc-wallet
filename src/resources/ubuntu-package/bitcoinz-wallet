@@ -1,3 +1,0 @@
-#!/bin/bash
-
-java -jar /usr/lib/bitcoinz-wallet/BitcoinZWallet.jar

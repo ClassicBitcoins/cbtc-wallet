@@ -374,7 +374,7 @@ public class AddressesPanel
 
 		String[][] addressBalances = new String[zAddresses.length + tAddressesCombined.size()][];
 
-		// Format double numbers - else sometimes we get exponential notation 1E-4 BTCZ
+		// Format double numbers - else sometimes we get exponential notation 1E-4 CBTC
 		DecimalFormat df = new DecimalFormat("########0.00######");
 
 		String confirmed    = "\u2690";

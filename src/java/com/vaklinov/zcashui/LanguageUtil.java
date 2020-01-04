@@ -16,7 +16,7 @@ public class LanguageUtil {
 
     private static final String PREFERRED_LOCALE_FILE_NAME = "language_preferences.txt";
 
-    private static final String RESOURCE_BUNDLE_FILE_NAME = "messages.bitcoinz";
+    private static final String RESOURCE_BUNDLE_FILE_NAME = "messages.cbtc";
 
     private static final Locale DEFAULT_LOCALE = Locale.US;
 

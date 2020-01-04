@@ -1,8 +1,8 @@
-Package: bitcoinz-wallet
-Version: 2.0.5
+Package: cbtc-wallet
+Version: 1.0.9
 Section: misc
 Priority: low
 Architecture: all
-Description: BitcoinZ Wallet
-Maintainer: BitcoinZ@team.com
-Depends: default-jdk, bitcoinz
+Description: CBTC Wallet
+Maintainer: admin@bitclassic.info
+Depends: default-jdk, cbtc

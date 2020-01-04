@@ -183,7 +183,7 @@ public class SendCashPanel
 		tempPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
   tempPanel.add(destinationAmountField = new JTextField(13));
 		destinationAmountField.setHorizontalAlignment(SwingConstants.RIGHT);
-		tempPanel.add(new JLabel(" BTCZ    "));
+		tempPanel.add(new JLabel(" CBTC    "));
 		amountPanel.add(tempPanel, BorderLayout.SOUTH);
 
 		JPanel feePanel = new JPanel(new BorderLayout());
@@ -192,7 +192,7 @@ public class SendCashPanel
 		tempPanel.add(transactionFeeField = new JTextField(13));
 		transactionFeeField.setText("0.0001"); // Default value
 		transactionFeeField.setHorizontalAlignment(SwingConstants.RIGHT);
-		tempPanel.add(new JLabel(" BTCZ"));
+		tempPanel.add(new JLabel(" CBTC"));
 		feePanel.add(tempPanel, BorderLayout.SOUTH);
 
 		amountAndFeePanel.add(amountPanel);
@@ -273,7 +273,7 @@ public class SendCashPanel
 					JOptionPane.showMessageDialog(
 							SendCashPanel.this.getRootPane().getParent(),
 							"An unexpected error occurred when sending cash!\n" +
-							"Please ensure that the BitcoinZ daemon is running and\n" +
+							"Please ensure that the CBTC daemon is running and\n" +
 							"parameters are correct. You may try again later...\n" +
 							errMessage,
 							"Error in sending cash", JOptionPane.ERROR_MESSAGE);
@@ -426,15 +426,15 @@ public class SendCashPanel
 		// ZClassic compatibility
 		if (!installationObserver.isOnTestNet())
 		{
-			if (!(destinationAddress.startsWith("t") || destinationAddress.startsWith("z")))
+			if (!(destinationAddress.startsWith("r") || destinationAddress.startsWith("z")))
 			{
 				Object[] options = { "OK" };
 
 				JOptionPane.showOptionDialog(
 					SendCashPanel.this.getRootPane().getParent(),
-					"The destination address to send BTCZ to:\n" +
+					"The destination address to send CBTC to:\n" +
 					destinationAddress + "\n"+
-					"does not appear to be a valid BitcoinZ address. BTCZ addresses start with t or z!",
+					"does not appear to be a valid CBTC address. CBTC addresses start with r or z!",
 					"Destination address is incorrect...",
 					JOptionPane.DEFAULT_OPTION,
 					JOptionPane.ERROR_MESSAGE,
@@ -723,7 +723,7 @@ public class SendCashPanel
 
 			int option = JOptionPane.showOptionDialog(
 				SendCashPanel.this.getRootPane().getParent(),
-				"Succesfully sent " + amount + " BTCZ from address: \n" +
+				"Succesfully sent " + amount + " CBTC from address: \n" +
 				sourceAddress + "\n" +
 				"to address: \n" +
 				destinationAddress + "\n\n" +
@@ -745,10 +745,10 @@ public class SendCashPanel
 		    	// Open block explorer
 				Log.info("Transaction ID for block explorer is: " + TXID);
 				// TODO: code duplication with transactions table
-				String urlPrefix = "https://explorer.btcz.rocks/tx/";
+				String urlPrefix = "https://classicbitcoin.info/explorer/tx/";
 				if (installationObserver.isOnTestNet())
 				{
-					urlPrefix = "http://testnet.explorer.btcz.life:3002/tx/";
+					urlPrefix = "http://classicbitcoin:9139/tx/";
 				}
 				Desktop.getDesktop().browse(new URL(urlPrefix + TXID).toURI());
 		    }

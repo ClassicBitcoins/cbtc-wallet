@@ -51,7 +51,7 @@ import com.vaklinov.zcashui.Util;
  */
 public class MessagingIdentity
 {
-	// Fields based on the BTCZ messaging protocol
+	// Fields based on the CBTC messaging protocol
 	// https://github.com/ZencashOfficial/messaging-protocol/blob/master/README.md
 	private String nickname;
 	private String sendreceiveaddress;
@@ -64,7 +64,7 @@ public class MessagingIdentity
 	private String facebook;
 	private String twitter;
 	
-	// Additional fields not based on the BTCZ messaging protocol
+	// Additional fields not based on the CBTC messaging protocol
 	private boolean isAnonymous; // If the remote contact sends messages anonymously
 	private String threadID; // Thread ID for anonymous messages
 	private boolean isGroup; // If it represents a messaging group

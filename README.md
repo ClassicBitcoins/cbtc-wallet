@@ -1,17 +1,17 @@
-# BitcoinZ Wallet
+# CBTC Wallet
 
-[Download here](https://github.com/bitcoinz-pod/bitcoinz-windows-wallet/releases)
+[Download here](https://github.com/cbtc-pod/cbtc-windows-wallet/releases)
 
 
 
 Security Warnings
 -----------------
 
-**BitcoinZ is experimental and a work-in-progress.** Use at your own risk.
+**CBTC is experimental and a work-in-progress.** Use at your own risk.
 
 
 
-*BitcoinZ Desktop GUI Wallet is based on ZENCash Desktop GUI Wallet*
+*CBTC Desktop GUI Wallet is based on ZENCash Desktop GUI Wallet*
 # [ZENCash](https://zensystem.io/) Desktop GUI Wallet
 
 ## Graphical user interface wrapper for the [ZENCash](https://zensystem.io/) command line tools

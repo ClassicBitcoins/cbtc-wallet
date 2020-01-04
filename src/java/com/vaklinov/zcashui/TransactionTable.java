@@ -127,10 +127,10 @@ public class TransactionTable
 
 						Log.info("Transaction ID for block explorer is: " + txID);
 						// https://explorer.zcha.in/transactions/<ID>
-						String urlPrefix = "https://explorer.btcz.rocks/tx/";
+						String urlPrefix = "https://classicbitcoin.info/explorer/tx/";
 						if (installationObserver.isOnTestNet())
 						{
-							urlPrefix = "http://testnet.explorer.btcz.life:3002/tx/";
+							urlPrefix = "http://classicbitcoin.info:9139/tx/";
 						}
 
 						Desktop.getDesktop().browse(new URL(urlPrefix + txID).toURI());
@@ -246,7 +246,7 @@ public class TransactionTable
 			JLabel infoLabel = new JLabel(
 					"<html><span style=\"font-size:0.97em;\">" +
 					"The table shows the information about the transaction with technical details as " +
-					"they appear at BitcoinZ network level." +
+					"they appear at CBTC network level." +
 				    "</span>");
 			infoLabel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
 			tempPanel.add(infoLabel, BorderLayout.CENTER);

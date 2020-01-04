@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0.9
+Name=CBTC Wallet
+Comment=CBTC Desktop GUI Wallet (full node)
+GenericName=CBTC Wallet
+Keywords=CBTC;Crypto-currency;CBTC;
+Exec=cbtc-wallet
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/lib/cbtc-wallet/CBTC.png
+Categories=GNOME;Application;
+StartupNotify=true

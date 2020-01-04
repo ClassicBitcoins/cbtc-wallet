@@ -69,7 +69,7 @@ import com.vaklinov.zcashui.msg.MessagingPanel;
 
 
 /**
- * Main BitcoinZ Window.
+ * Main CBTC Window.
  *
  * @author Ivan Vaklinov <ivan@vaklinov.com>
  */
@@ -111,7 +111,7 @@ public class ZCashUI
     public ZCashUI(StartupProgressDialog progressDialog)
         throws IOException, InterruptedException, WalletCallException
     {
-        super("BitcoinZ Wallet 2.0.5");
+        super("CBTC Wallet 1.0.9");
 
         if (progressDialog != null)
         {
@@ -121,14 +121,14 @@ public class ZCashUI
         ClassLoader cl = this.getClass().getClassLoader();
 
         imageList = new ArrayList();
-        imageList.add(new ImageIcon(cl.getResource("images/bitcoinz20x20.png")).getImage());
-        imageList.add(new ImageIcon(cl.getResource("images/bitcoinz30x30.png")).getImage());
-        imageList.add(new ImageIcon(cl.getResource("images/bitcoinz38x38.png")).getImage());
-        imageList.add(new ImageIcon(cl.getResource("images/bitcoinz40x40.png")).getImage());
-        imageList.add(new ImageIcon(cl.getResource("images/bitcoinz60x60.png")).getImage());
-        imageList.add(new ImageIcon(cl.getResource("images/bitcoinz80x80.png")).getImage());
-        imageList.add(new ImageIcon(cl.getResource("images/bitcoinz120x120.png")).getImage());
-        imageList.add(new ImageIcon(cl.getResource("images/BitcoinZ.png")).getImage());
+        imageList.add(new ImageIcon(cl.getResource("images/cbtc20x20.png")).getImage());
+        imageList.add(new ImageIcon(cl.getResource("images/cbtc30x30.png")).getImage());
+        imageList.add(new ImageIcon(cl.getResource("images/cbtc38x38.png")).getImage());
+        imageList.add(new ImageIcon(cl.getResource("images/cbtc40x40.png")).getImage());
+        imageList.add(new ImageIcon(cl.getResource("images/cbtc60x60.png")).getImage());
+        imageList.add(new ImageIcon(cl.getResource("images/cbtc80x80.png")).getImage());
+        imageList.add(new ImageIcon(cl.getResource("images/cbtc120x120.png")).getImage());
+        imageList.add(new ImageIcon(cl.getResource("images/CBTC.png")).getImage());
         this.setIconImages(imageList);
 
         Container contentPane = this.getContentPane();
@@ -459,9 +459,9 @@ public class ZCashUI
 
                 JOptionPane.showMessageDialog(
                     ZCashUI.this.getRootPane().getParent(),
-                    "The BitcoinZ GUI Wallet is currently considered experimental. Use of this software\n" +
+                    "The CBTC GUI Wallet is currently considered experimental. Use of this software\n" +
                     "comes at your own risk! Be sure to read the list of known issues and limitations\n" +
-                    "at this page: https://github.com/btcz/bitcoinz-wallet\n\n" +
+                    "at this page: https://github.com/classicbitcoins/cbtc-wallet\n\n" +
                     "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n" +
                     "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n" +
                     "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n" +
@@ -527,7 +527,7 @@ public class ZCashUI
         		possiblyCreateZENConfigFile();
         	}
 
-        	Log.info("Starting BitcoinZ Wallet ...");
+        	Log.info("Starting CBTC Wallet ...");
         	Log.info("OS: " + System.getProperty("os.name") + " = " + os);
         	Log.info("Current directory: " + new File(".").getCanonicalPath());
         	Log.info("Class path: " + System.getProperty("java.class.path"));
@@ -561,7 +561,7 @@ public class ZCashUI
 	            }
             }
 
-            // If bitcoinzd is currently not running, do a startup of the daemon as a child process
+            // If cbtcd is currently not running, do a startup of the daemon as a child process
             // It may be started but not ready - then also show dialog
             ZCashInstallationObserver initialInstallationObserver =
             	new ZCashInstallationObserver(OSUtil.getProgramDirectory());
@@ -588,7 +588,7 @@ public class ZCashUI
                 if ((wce.getMessage().indexOf("{\"code\":-28") != -1) || // Started but not ready
                 	(wce.getMessage().indexOf("error code: -28") != -1))
                 {
-                	Log.info("bitcoinzd is currently starting...");
+                	Log.info("cbtcd is currently starting...");
                 	daemonStartInProgress = true;
                 }
             }
@@ -597,7 +597,7 @@ public class ZCashUI
             if ((zcashdInfo.status != DAEMON_STATUS.RUNNING) || (daemonStartInProgress))
             {
             	Log.info(
-            		"bitcoinzd is not runing at the moment or has not started/synchronized 100% - showing splash...");
+            		"cbtcd is not runing at the moment or has not started/synchronized 100% - showing splash...");
 	            startupBar = new StartupProgressDialog(initialClientCaller);
 	            startupBar.setVisible(true);
 	            startupBar.waitForStartup();
@@ -628,7 +628,7 @@ public class ZCashUI
             {
                 JOptionPane.showMessageDialog(
                         null,
-                        "It appears that bitcoinzd has been started but is not ready to accept wallet\n" +
+                        "It appears that cbtcd has been started but is not ready to accept wallet\n" +
                         "connections. It is still loading the wallet and blockchain. Please try to \n" +
                         "start the GUI wallet later...",
                         "Wallet communication error",
@@ -637,9 +637,9 @@ public class ZCashUI
             {
                 JOptionPane.showMessageDialog(
                     null,
-                    "There was a problem communicating with the BitcoinZ daemon/wallet. \n" +
-                    "Please ensure that the BitcoinZ server bitcoinzd is started (e.g. via \n" +
-                    "command  \"bitcoinzd --daemon\"). Error message is: \n" +
+                    "There was a problem communicating with the CBTC daemon/wallet. \n" +
+                    "Please ensure that the CBTC server cbtcd is started (e.g. via \n" +
+                    "command  \"cbtcd --daemon\"). Error message is: \n" +
                      wce.getMessage() +
                     "See the console/logfile output for more detailed error information!",
                     "Wallet communication error",
@@ -693,11 +693,11 @@ public class ZCashUI
 			}
 		}
 
-		File zenConfigFile = new File(dir, "bitcoinz.conf");
+		File zenConfigFile = new File(dir, "cbtc.conf");
 
 		if (!zenConfigFile.exists())
 		{
-			Log.info("BitcoinZ configuration file " + zenConfigFile.getCanonicalPath() +
+			Log.info("CBTC configuration file " + zenConfigFile.getCanonicalPath() +
 					 " does not exist. It will be created with default settings.");
 
 			Random random = new SecureRandom();
@@ -705,15 +705,15 @@ public class ZCashUI
 			PrintStream configOut = new PrintStream(new FileOutputStream(zenConfigFile));
 
 			configOut.println("#############################################################################");
-			configOut.println("#                         BitcoinZ configuration file                            #");
+			configOut.println("#                         CBTC configuration file                            #");
 			configOut.println("#############################################################################");
-			configOut.println("# This file has been automatically generated by the BitcoinZ GUI wallet with #");
+			configOut.println("# This file has been automatically generated by the CBTC GUI wallet with #");
 			configOut.println("# default settings. It may be further cutsomized by hand only.              #");
 			configOut.println("#############################################################################");
 			configOut.println("# Creation date: " + new Date().toString());
 			configOut.println("#############################################################################");
 			configOut.println("");
-			configOut.println("# The rpcuser/rpcpassword are used for the local call to bitcoinzd");
+			configOut.println("# The rpcuser/rpcpassword are used for the local call to cbtcd");
 			configOut.println("rpcuser=User" + getPassword(random));
 			configOut.println("rpcpassword=Pass" + getPassword(random));
 			configOut.println("");
