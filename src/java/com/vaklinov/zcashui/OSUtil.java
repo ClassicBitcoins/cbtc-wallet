@@ -218,10 +218,10 @@ public class OSUtil
 
 		if (os == OS_TYPE.MAC_OS)
 		{
-			return new File(System.getProperty("user.home") + "/Library/Application Support/CBTC").getCanonicalPath();
+			return new File(System.getProperty("user.home") + "/Library/Application Support/cbtc").getCanonicalPath();
 		} else if (os == OS_TYPE.WINDOWS)
 		{
-			return new File(System.getenv("APPDATA") + "\\CBTC").getCanonicalPath();
+			return new File(System.getenv("APPDATA") + "\\cbtc").getCanonicalPath();
 		} else
 		{
 			return new File(System.getProperty("user.home") + "/.cbtc").getCanonicalPath();
@@ -333,7 +333,7 @@ public class OSUtil
 	    		File pf = new File(programFiles);
 	    		if (pf.exists() && pf.isDirectory())
 	    		{
-	    			File ZDir = new File(pf, "CBTC");
+	    			File ZDir = new File(pf, "cbtc");
 	    			if (ZDir.exists() && ZDir.isDirectory())
 	    			{
 	    				File cf = new File(ZDir, command);
