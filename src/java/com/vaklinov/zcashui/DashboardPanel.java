@@ -122,7 +122,7 @@ public class DashboardPanel
 
 		JPanel tempPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 9));
 		JLabel logoLabel = new JLabel(new ImageIcon(
-			this.getClass().getClassLoader().getResource("images/btz_icon.png")));
+			this.getClass().getClassLoader().getResource("images/cbtc_icon.png")));
 		tempPanel.add(logoLabel);
 		// TODO: use relative size
 		JLabel zcLabel = new JLabel("CBTC Wallet ");
